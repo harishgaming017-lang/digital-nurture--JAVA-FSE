@@ -1,0 +1,428 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* =====================================================
+TASK 11 : CSS RESET
+Objective:
+Remove default browser spacing and use predictable sizing.
+Why:
+Resetting margin, padding, and box sizing makes layouts easier for beginners to control.
+Lab Task Satisfied:
+Universal selector reset with margin, padding, and box-sizing.
+===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =====================================================
+TASK 16 : TYPOGRAPHY
+Objective:
+Import and apply a Google Font with readable text styles.
+Why:
+Typography improves readability and gives the portal a consistent visual voice.
+Lab Task Satisfied:
+font-family, font-size, font-style, font-weight, letter-spacing, line-height, text-transform, and text-align.
+===================================================== */
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.7;
+    color: #1f2937;
+    background-color: rgb(245, 247, 250);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* =====================================================
+TASK 12 : SELECTORS
+Objective:
+Demonstrate element, ID, class, universal, and grouping selectors.
+Why:
+These selectors are the foundation of CSS styling.
+Lab Task Satisfied:
+Examples include h2, #welcomeBanner, .eventCard, *, and grouped h1/h2/h3 selectors.
+===================================================== */
+p {
+    margin-bottom: 1rem;
+}
+
+#welcomeBanner {
+    min-height: 60vh;
+}
+
+.highlight {
+    background-color: rgba(255, 255, 255, 0.86);
+    color: #0f5132;
+    display: inline-block;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+}
+
+h3,
+p {
+    text-align: left;
+}
+
+/* =====================================================
+TASK 13 : COLORS
+Objective:
+Use HEX, RGB, and RGBA color values.
+Why:
+Real websites commonly mix these color formats for solid and transparent styling.
+Lab Task Satisfied:
+#007BFF, rgb(), and rgba() are used across the stylesheet.
+===================================================== */
+.siteHeader,
+footer {
+    background-color: #007BFF;
+    color: rgb(255, 255, 255);
+}
+
+/* =====================================================
+TASK 15 : GRADIENTS
+Objective:
+Apply linear gradients to headers and important bands.
+Why:
+Gradients add visual depth while keeping text readable.
+Lab Task Satisfied:
+linear-gradient() applied to navigation and footer areas.
+===================================================== */
+.siteHeader {
+    background: linear-gradient(90deg, #0056b3, #007BFF);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+main {
+    padding-top: 5rem;
+}
+
+section,
+footer,
+header {
+    scroll-margin-top: 5rem;
+}
+/* =====================================================
+TASK 18 : LIST STYLING
+Objective:
+Remove default bullets from the navigation list.
+Why:
+Navigation menus should look like interface controls instead of document lists.
+Lab Task Satisfied:
+list-style:none applied to navigation.
+===================================================== */
+.mainNav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 1rem;
+}
+
+/* =====================================================
+TASK 17 : LINK STYLING
+Objective:
+Style all main link states.
+Why:
+Different link states give users feedback while navigating.
+Lab Task Satisfied:
+a:link, a:hover, a:active, and a:visited.
+===================================================== */
+a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #e0f2fe;
+}
+
+a:hover {
+    color: #fff7ed;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #ffedd5;
+}
+
+.helpPage a:link,
+.helpPage a:visited {
+    color: #007BFF;
+}
+
+/* =====================================================
+TASK 14 : BACKGROUND IMAGE
+Objective:
+Add a background image with fallback color and cover behavior.
+Why:
+A hero background creates a stronger first impression while the fallback protects readability.
+Lab Task Satisfied:
+background-image, background-size:cover, background-position:center, and fallback color.
+===================================================== */
+.heroSection {
+    align-items: center;
+    background-color: #dbeafe;
+    background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25)), url("images/BG.png");
+    background-position: center;
+    background-size: cover;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 65vh;
+    padding: 8vw;
+    text-align: center;
+}
+
+.heroSection h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.contentSection {
+    padding: 4rem 8%;
+}
+
+/* =====================================================
+TASK 22 : RESPONSIVE DESIGN
+Objective:
+Use Flexbox, CSS Grid, vw, vh, percentages, and a media query.
+Why:
+The portal should remain usable on phones, tablets, and desktops.
+Lab Task Satisfied:
+Flexible cards, vertical navbar on small screens, smaller images, and smaller fonts.
+===================================================== */
+.eventTools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.eventTools input,
+.eventTools select,
+input,
+select,
+textarea {
+    border: 1px solid #9ca3af;
+    border-radius: 6px;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+.eventTools input,
+.eventTools select {
+    max-width: 260px;
+}
+
+.eventGrid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* =====================================================
+TASK 20 : BOX MODEL
+Objective:
+Apply margin, padding, border, outline, and shadow to event cards.
+Why:
+The box model makes each event visually separate and easier to scan.
+Lab Task Satisfied:
+.eventCard uses margin, padding, border, outline, and box-shadow.
+===================================================== */
+.eventCard {
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.12);
+    margin: 0.5rem;
+    outline: 2px solid rgba(0,123,255,0.18);
+    overflow: hidden;
+    padding: 1rem;
+}
+
+.eventCard img {
+    aspect-ratio: 16 / 10;
+    border-radius: 6px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.eventCard button,
+button {
+    background-color: #007BFF;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+}
+
+.eventCard button:disabled {
+    background-color: #6b7280;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+TASK 19 : TABLE STYLING
+Objective:
+Style the image gallery table with borders, padding, and zebra striping.
+Why:
+Table styling makes the required gallery structure readable and polished.
+Lab Task Satisfied:
+border-collapse, padding, border, text-align, and tr:nth-child(even).
+===================================================== */
+.galleryTable {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.galleryTable caption {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.galleryTable td {
+    border: 1px solid #cbd5e1;
+    padding: 1rem;
+    text-align: center;
+}
+
+.galleryTable tr:nth-child(even) {
+    background-color: rgba(0, 123, 255, 0.08);
+}
+
+.galleryImage {
+    border: 4px solid #ffffff;
+    cursor: zoom-in;
+    max-width: 100%;
+    transition: transform 0.25s ease;
+    width: 240px;
+}
+
+.galleryImage.enlarged {
+    transform: scale(1.35);
+    z-index: 2;
+}
+
+.formSection form {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    display: grid;
+    gap: 0.75rem;
+    margin: 0 auto;
+    max-width: 720px;
+    padding: 1.5rem;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.buttonRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.error {
+    color: #b91c1c;
+    font-size: 0.9rem;
+    min-height: 1.25rem;
+}
+
+#registrationOutput,
+#videoStatus,
+#locationOutput {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    display: block;
+    padding: 0.75rem;
+}
+
+video {
+    display: block;
+    margin: 0 auto 1rem;
+    max-width: 100%;
+}
+
+/* =====================================================
+TASK 21 : MULTI COLUMN LAYOUT
+Objective:
+Display the news article in two readable columns.
+Why:
+Long article text becomes easier to scan on wider screens.
+Lab Task Satisfied:
+column-count, column-gap, and column-rule.
+===================================================== */
+.newsArticle {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+}
+
+footer {
+    background: linear-gradient(90deg, #007BFF, #0f766e);
+    padding: 2rem;
+    text-align: center;
+}
+
+footer p {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .mainNav ul {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .heroSection {
+        min-height: 55vh;
+        padding: 10vw 6%;
+    }
+
+    .contentSection {
+        padding: 3rem 5%;
+    }
+
+    .eventGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .galleryImage {
+        width: 38vw;
+    }
+
+    .newsArticle {
+        column-count: 1;
+    }
+}

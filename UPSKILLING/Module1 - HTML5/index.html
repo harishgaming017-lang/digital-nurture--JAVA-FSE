@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- =====================================================
+TASK 1 : HTML5 BASE TEMPLATE
+Objective:
+Create a semantic HTML5 document for the Local Community Event Portal.
+Why:
+The browser needs a valid document structure before CSS and JavaScript can enhance it.
+Lab Task Satisfied:
+HTML5 base template, metadata, title, and semantic page sections.
+===================================================== -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Section -->
+    <!-- =====================================================
+    TASK 2 : NAVIGATION
+    Objective:
+    Create a navigation menu with links to all important page sections.
+    Why:
+    Navigation helps users move quickly through a single-page community portal.
+    Lab Task Satisfied:
+    Home, Events, Gallery, Register, Feedback, Contact, and external Help link.
+    ===================================================== -->
+    <header id="home" class="siteHeader">
+        <nav class="mainNav" aria-label="Main navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="help.html" target="_blank" rel="noopener">Help</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Welcome Banner -->
+        <!-- =====================================================
+        TASK 3 : WELCOME BANNER
+        Objective:
+        Display a welcoming message and a highlighted special offer.
+        Why:
+        A clear welcome area immediately tells users what the portal is about.
+        Lab Task Satisfied:
+        id="welcomeBanner", inline styled offer span, and class="highlight".
+        ===================================================== -->
+        <section id="welcomeBanner" class="heroSection">
+            <h1>Welcome to Local Community Event Portal</h1>
+            <p class="highlight">Find events, register online, and stay connected with your neighborhood.</p>
+            <p>
+                <span style="color:red;font-weight:bold">Free Registration Today</span>
+            </p>
+        </section>
+
+        <!-- Event Section -->
+        <!-- =====================================================
+        TASK 4 : COMMUNITY EVENT CARDS
+        Objective:
+        Reserve a section where JavaScript dynamically displays community events.
+        Why:
+        Dynamic cards make it easy to filter future events and update available seats.
+        Lab Task Satisfied:
+        Music Festival, Sports Meet, Workshop, Food Carnival, and Book Fair cards.
+        ===================================================== -->
+        <section id="events" class="contentSection">
+            <h2>Upcoming Events</h2>
+            <div class="eventTools">
+                <label for="eventFilter">Filter by event type</label>
+                <select id="eventFilter">
+                    <option value="all">All Events</option>
+                    <option value="music">Music</option>
+                    <option value="sports">Sports</option>
+                    <option value="education">Education</option>
+                    <option value="food">Food</option>
+                    <option value="literature">Literature</option>
+                </select>
+                <label for="eventSearch">Search events</label>
+                <input type="search" id="eventSearch" placeholder="Type an event name">
+            </div>
+            <div id="eventCards" class="eventGrid" aria-live="polite"></div>
+        </section>
+
+        <!-- Gallery Section -->
+        <!-- =====================================================
+        TASK 5 : IMAGE GALLERY
+        Objective:
+        Create a 2 row by 3 column table gallery with captions.
+        Why:
+        A table layout satisfies the lab requirement and presents fixed gallery rows clearly.
+        Lab Task Satisfied:
+        Each image has src, alt, title, caption, and double-click enlargement behavior.
+        ===================================================== -->
+        <section id="gallery" class="contentSection">
+            <h2>Event Gallery</h2>
+            <table class="galleryTable">
+                <caption>Recent community moments</caption>
+                <tr>
+                    <td>
+                        <img src="images/event1.jpg" alt="Music Festival stage" title="Music Festival" class="galleryImage">
+                        <p>Music Festival</p>
+                    </td>
+                    <td>
+                        <img src="images/event2.jpg" alt="Sports Meet runners" title="Sports Meet" class="galleryImage">
+                        <p>Sports Meet</p>
+                    </td>
+                    <td>
+                        <img src="images/event3.jpg" alt="Workshop classroom" title="Workshop" class="galleryImage">
+                        <p>Workshop</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="images/event4.jpg" alt="Food Carnival stalls" title="Food Carnival" class="galleryImage">
+                        <p>Food Carnival</p>
+                    </td>
+                    <td>
+                        <img src="images/event5.jpg" alt="Book Fair shelves" title="Book Fair" class="galleryImage">
+                        <p>Book Fair</p>
+                    </td>
+                    <td>
+                        <img src="images/event6.jpg" alt="Community volunteers" title="Volunteer Drive" class="galleryImage">
+                        <p>Volunteer Drive</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Registration Section -->
+        <!-- =====================================================
+        TASK 6 : REGISTRATION FORM
+        Objective:
+        Collect event registration information from users.
+        Why:
+        Forms are the main interaction for turning visitors into event participants.
+        Lab Task Satisfied:
+        Required fields, placeholders, autofocus, dropdown, and output success message.
+        ===================================================== -->
+        <section id="register" class="contentSection formSection">
+            <h2>Register for an Event</h2>
+            <form id="registrationForm" novalidate>
+                <label for="fullName">Name</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name" autofocus>
+                <span class="error" id="nameError"></span>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="name@example.com">
+                <span class="error" id="emailError"></span>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required placeholder="10 digit phone number">
+                <span class="error" id="phoneError"></span>
+
+                <label for="eventDate">Date</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+
+                <label for="eventType">Event Type</label>
+                <select id="eventType" name="eventType" required>
+                    <option value="">Choose an event</option>
+                    <option value="music">Music Festival</option>
+                    <option value="sports">Sports Meet</option>
+                    <option value="education">Workshop</option>
+                    <option value="food">Food Carnival</option>
+                    <option value="literature">Book Fair</option>
+                </select>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Tell us anything we should know"></textarea>
+                <span class="error" id="messageError"></span>
+
+                <div class="buttonRow">
+                    <button type="submit" id="registerBtn">Register</button>
+                    <button type="button" id="clearPreferences">Clear Preferences</button>
+                </div>
+                <output id="registrationOutput">Please complete the form.</output>
+            </form>
+        </section>
+
+        <!-- Feedback Section -->
+        <!-- =====================================================
+        TASK 7 : FEEDBACK SECTION
+        Objective:
+        Allow users to submit feedback and count typed characters.
+        Why:
+        Feedback helps organizers improve future community events.
+        Lab Task Satisfied:
+        Phone number, event selection, textarea, submit button, and live character count.
+        ===================================================== -->
+        <section id="feedback" class="contentSection formSection">
+            <h2>Feedback</h2>
+            <form id="feedbackForm">
+                <label for="feedbackPhone">Phone Number</label>
+                <input type="tel" id="feedbackPhone" placeholder="10 digit phone number">
+
+                <label for="feedbackEvent">Event Selection</label>
+                <select id="feedbackEvent">
+                    <option>Music Festival</option>
+                    <option>Sports Meet</option>
+                    <option>Workshop</option>
+                    <option>Food Carnival</option>
+                    <option>Book Fair</option>
+                </select>
+
+                <label for="feedbackText">Feedback</label>
+                <textarea id="feedbackText" placeholder="Share your experience"></textarea>
+                <p id="charCount">Characters Typed: 0</p>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+        <!-- Video Section -->
+        <!-- =====================================================
+        TASK 8 : VIDEO SECTION
+        Objective:
+        Embed a promotional video and show readiness status.
+        Why:
+        Video gives visitors a richer preview of community activities.
+        Lab Task Satisfied:
+        video controls and "Video Ready To Play" message using video events.
+        ===================================================== -->
+        <section id="video" class="contentSection">
+            <h2>Community Promo</h2>
+            <video id="promoVideo" controls width="640">
+                <source src="D:\DIGITAL NURTURE JAVA-FSE\LocalCommunityEventPortal\videos\istockphoto-1673647159-640_adpp_is.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p id="videoStatus">Video loading...</p>
+        </section>
+
+        <!-- Geolocation Section -->
+        <!-- =====================================================
+        TASK 9 : GEOLOCATION SECTION
+        Objective:
+        Use the browser Geolocation API to find the user's location.
+        Why:
+        Nearby event features depend on knowing latitude and longitude with permission.
+        Lab Task Satisfied:
+        Button, latitude, longitude, accuracy, and error handling placeholders.
+        ===================================================== -->
+        <section id="location" class="contentSection">
+            <h2>Find Nearby Events</h2>
+            <button id="findEventsBtn">Find Nearby Events</button>
+            <div id="locationOutput">
+                <p>Latitude: <span id="latitude">Not available</span></p>
+                <p>Longitude: <span id="longitude">Not available</span></p>
+                <p>Accuracy: <span id="accuracy">Not available</span></p>
+            </div>
+        </section>
+
+        <!-- =====================================================
+        TASK 10 : COMMUNITY NEWS SECTION
+        Objective:
+        Provide a long community news article for multi-column styling.
+        Why:
+        Longer text demonstrates CSS columns, line-height, and readable typography.
+        Lab Task Satisfied:
+        Article contains more than 500 words and is ready for multi-column layout.
+        ===================================================== -->
+        <section id="news" class="contentSection">
+            <h2>Community News</h2>
+            <article class="newsArticle">
+                <p>
+                    Our local community continues to grow through shared events, volunteer energy, and the simple habit of neighbors showing up for one another. This month, the event committee has planned a full calendar designed for families, students, professionals, senior citizens, and anyone who wants to feel more connected to the place they call home. The Music Festival will open the season with local performers, youth bands, and cultural groups who have been practicing for weeks. The event is expected to bring together residents from several nearby streets, and organizers have arranged seating, first-aid support, drinking water, and a help desk so guests can enjoy the evening comfortably.
+                </p>
+                <p>
+                    The Sports Meet will follow with friendly competitions that focus on participation more than winning. Children can join short races, adults can participate in team games, and senior citizens will have low-impact activities planned by volunteers. These events are important because they encourage movement, teamwork, and conversation across age groups. When people meet through play, they often build trust faster than they would in formal meetings. The Workshop series will also return this month with sessions on digital safety, basic financial planning, public speaking, and career preparation. Each workshop is beginner-friendly, and mentors from the community will stay after the sessions to answer questions.
+                </p>
+                <p>
+                    Food Carnival preparations are already underway. Local home cooks, small food businesses, and youth clubs will set up stalls featuring snacks, desserts, regional dishes, and healthy options. The carnival committee has asked every stall owner to follow hygiene rules and label ingredients clearly, especially for visitors with allergies. A small seating area will be arranged near the main ground, and waste bins will be placed throughout the venue to keep the space clean. The Book Fair is another highlight because it supports reading habits and gives families access to affordable books. Donated books will be sorted into children, fiction, exam preparation, biography, and self-improvement sections.
+                </p>
+                <p>
+                    Beyond entertainment, these events also strengthen civic participation. Volunteers are learning how to manage registrations, guide visitors, maintain schedules, and solve problems politely. Local students are helping with posters, announcements, and digital updates, which gives them practical experience in communication and teamwork. Residents who cannot attend in person can still follow updates through the portal, where event details, seat availability, feedback forms, and location features are available in one place. The committee is also encouraging everyone to use the feedback section after attending an event so future programs can be planned with better information.
+                </p>
+                <p>
+                    Safety remains a top priority. Event areas will include clear entry and exit points, emergency contact numbers, and volunteer coordinators wearing visible badges. Families are requested to arrive early, carry water bottles, and keep children close in crowded areas. The organizers also request guests to respect time limits, keep the venues clean, and support local participants with patience and kindness. A successful community event is not created only by the committee; it is created by every visitor who registers responsibly, follows instructions, welcomes newcomers, and contributes to a friendly atmosphere. With everyone working together, this event season can become a practical example of how local communities become stronger, happier, and more prepared for the future.
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <!-- =====================================================
+    FOOTER AND CONTACT SECTION
+    Objective:
+    Provide simple contact information and page ending.
+    Why:
+    Users need a clear final place to find support and ownership details.
+    Lab Task Satisfied:
+    Contact anchor in navigation points to this footer section.
+    ===================================================== -->
+    <footer id="contact">
+        <p>Contact: community@example.com | Phone: 9876543210</p>
+        <p>&copy; 2026 Local Community Event Portal</p>
+    </footer>
+
+    <!-- jQuery CDN required for Task 42. The local main.js file uses both modern ES6+ JavaScript and jQuery. -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
